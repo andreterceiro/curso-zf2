@@ -1,0 +1,19 @@
+<ul>
+    <?php foreach ($categorias as $categoria): ?>
+        <li class="externa-categorias">
+            Categoria: <?php echo $categoria->getNome();?>
+            <ul>
+                <?php
+                    foreach($categoria->getLivros() as $livro) {
+                ?>
+                        <li class="externa-livros">
+                            Livro: <?php echo $livro->getNome();?>
+                            (<?php echo $livro->getPaginas();?> páginas)
+                        </li>
+                <?php
+                    }
+                ?>
+            </ul>
+        </li>
+    <?php endforeach; ?>
+</ul>

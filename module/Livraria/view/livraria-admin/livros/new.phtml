@@ -1,0 +1,23 @@
+<h1>Novo Livro</h1>
+<?php
+/*
+    $this->form->setAttribute(
+        'action', 
+        $this->url('livraria-admin', array('controller' => 'categorias', 'action' => 'new'))
+    );
+ */
+    $this->form->prepare();
+?>
+<?php echo $this->form()->openTag($this->form);?><br />
+<?php echo $this->formHidden($this->form->get('id'));?><br />
+<?php echo $this->formRow($this->form->get('categoria'));?><br />
+<?php echo $this->formRow($this->form->get('nome'));?><br />
+<?php echo $this->formRow($this->form->get('autor'));?><br />
+<?php echo $this->formRow($this->form->get('isbn'));?><br />
+<?php echo $this->formRow($this->form->get('valor'));?><br />
+<?php echo $this->formRow($this->form->get('paginas'));?><br />
+<?php echo $this->formSubmit($this->form->get('submit'));?><br />    
+<!--<input type="text" name="nome" />-->
+<?php
+    echo $this->form()->closeTag();
+?>

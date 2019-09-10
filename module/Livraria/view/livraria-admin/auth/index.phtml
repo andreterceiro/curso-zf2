@@ -1,0 +1,27 @@
+<h1>Login</h1>
+
+<?php
+    if ($this->error) {
+?>
+        <p>usuário ou senha inválidos</p>
+<?php
+    }
+
+/*
+    $this->form->setAttribute(
+        'action', 
+        $this->url('livraria-admin', array('controller' => 'categorias', 'action' => 'new'))
+    );
+ */
+    $this->form->prepare();
+?>
+<?php echo $this->form()->openTag($this->form);?><br />
+<?php echo $this->formRow($this->form->get('email'));?><br />
+<?php echo $this->formRow($this->form->get('password')->setAttribute('value', ''));?><br />
+<?php echo $this->formSubmit($this->form->get('submit'));?><br />    
+<!--<input type="text" name="nome" />-->
+<?php
+    echo $this->form()->closeTag();
+?>
+<hr />
+<a href="<?php echo $this->url('home') ?>">Acessar a área externa</a>

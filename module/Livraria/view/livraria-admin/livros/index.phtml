@@ -1,0 +1,59 @@
+<h1>Livros</h1>
+
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Categoria</td>                
+        <td>Nome</td>        
+        <td>Autor</td>    
+        <td>ISBN</td>            
+        <td>Valor</td>    
+        <td>Páginas</td>            
+        <td>Ações</td>            
+    </tr>
+    <?php foreach ($this->data as $registro): ?>
+        <tr>
+            <td><?php echo $registro->getId();?></td>
+            <td><?php echo $registro->getCategoria();?></td>
+            <td><?php echo $registro->getNome();?></td>
+            <td><?php echo $registro->getAutor();?></td>            
+            <td><?php echo $registro->getIsbn();?></td>            
+            <td><?php echo $registro->getValor();?></td>                        
+            <td><?php echo $registro->getPaginas();?></td>                                    
+            <td>
+                <?php
+                    $linkEdicao = $this->url(
+                        'livraria-admin-interna', 
+                        array(
+                            'controller' => 'livros', 
+                            'action' => 'edit', 
+                            'id' => $registro->getId()
+                        )
+                    );
+                    
+                    $linkExclusao = $this->url(
+                        'livraria-admin-interna',
+                        array(
+                            'controller' => 'livros',
+                            'action' => 'delete',
+                            'id' => $registro->getId()
+                        )
+                    );
+                ?>
+                <a href="<?php echo $linkEdicao;?>"> Editar </a> &nbsp;
+                <a href="<?php echo $linkExclusao;?>"> Excluir </a> &nbsp;                
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<br />
+<?php 
+    echo $this->paginationControl(
+        $this->data,
+        'Sliding',
+        'paginator'
+    );
+?>
+<hr />
+<a href="<?php echo $this->url('livraria-admin', array('controller' => 'livros', 'action' => 'new'));?>">Novo registro</a>

@@ -1,0 +1,20 @@
+<h1>Edição do usuário</h1>
+<?php
+/*
+    $this->form->setAttribute(
+        'action', 
+        $this->url('livraria-admin', array('controller' => 'categorias', 'action' => 'new'))
+    );
+    $this->form->prepare();
+*/
+    echo $this->form()->openTag($this->form);
+    echo $this->formHidden($this->form->get('id'));
+    echo $this->formRow($this->form->get('nome'));
+    echo $this->formRow($this->form->get('email'));
+    echo $this->formRow($this->form->get('password')->setAttribute('value', ''));    
+    echo $this->formSubmit($this->form->get('submit'));    
+?>    
+<!--<input type="text" name="nome" />-->
+<?php
+    echo $this->form()->closeTag();
+?>
